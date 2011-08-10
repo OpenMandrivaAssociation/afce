@@ -4,7 +4,7 @@ Version:	0.9.0
 Release:	%mkrel 1
 Summary:	Block-scheme redactor
 License:	GPL
-Group:		Sciences/PC
+Group:		Education
 URL:		http://vicking.narod.ru/flowchart/
 Source:		%{name}-%{version}-%{rel}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
