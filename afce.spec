@@ -8,6 +8,7 @@ Group:		Education
 URL:		http://vicking.narod.ru/flowchart/
 Source:		%{name}-%{version}-%{rel}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
+BuildRequires:	libqt4-devel
 
 %description
 Block-scheme redactor
@@ -21,7 +22,7 @@ qmake
 
 %install
 rm -rf %{buildroot}
-%__install -Dm0644 %{name} %{buildroot}/%{bindir}/%{name}
+%__install -Dm0655 %{name} %{buildroot}/%{bindir}/%{name}
 #install *.so
 
 %files
