@@ -1,13 +1,13 @@
+%define		original_release	51
 Name:		afce
 Version:	0.9.0
-Release:	%mkrel 2
+Release:	%mkrel 1
 Summary:	Algorithm Flowchart Editor
 License:	GPL
 Group:		Education
 URL:		http://vicking.narod.ru/flowchart/
-#Source:		%{name}-%{version}-%{original_release}.tar.gz
+Source:		%{name}-%{version}-%{original_release}.tar.gz
 Source2:	%{name}.desktop
-Source:		afce-095-nntc-edition.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 BuildRequires:	libqt4-devel
 
@@ -15,9 +15,7 @@ BuildRequires:	libqt4-devel
 Algorithm Flowchart Editor
 
 %prep
-%setup -q -n %{name}
-sed -i 's@/usr/share/doc/packages/afce@%_datadir/%name@g' thelpwindow.cpp
-mv doc/primer.PNG doc/primer.png
+%setup -q -n %{name}-%{version}-%{original_release}
 
 %build
 qmake
@@ -31,18 +29,29 @@ install -dm 0755 %{buildroot}%{_datadir}/pixmaps
 install -dm 0755 %{buildroot}%{_docdir}/%{name}
 install -dm 0755 %{buildroot}%{_datadir}/applications
 install -m 0644 %{name}.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
-install -m 0644 *.ts %{buildroot}%{_datadir}/%{name}/
+install -m 0644 %{name}_en_US.ts %{buildroot}%{_datadir}/%{name}/%{name}_en_US.ts
+install -m 0644 %{name}_ru_RU.ts %{buildroot}%{_datadir}/%{name}/%{name}_ru_RU.ts
 install -m 0644 %{SOURCE2} %{buildroot}%{_datadir}/applications/%{name}.desktop
-install doc/* %buildroot%_datadir/%name/
 
 %files
 %defattr (-,root,root)
-%doc README.RU.txt LICENSE.TXT
+%doc README.RU.txt LICENSE.TXT doc/index.html
 %{_bindir}/%{name}
 %{_datadir}/%{name}/*
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
 
 
+
 %clean
 rm -rf %{buildroot}
+
+%changelog
+* Thu Aug 11 2011 Sergey Zhemoitel <serg@mandriva.org> 0.9.0-1
++ Revision: 693921
+- fix spec
+- fix spec
+- fix spec
+- fix spec
+- imported package afce
+
