@@ -9,7 +9,7 @@ URL:		http://vicking.narod.ru/flowchart/
 Source:		%{name}-%{version}-%{original_release}.tar.gz
 Source2:	%{name}.desktop
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
-BuildRequires:	libqt4-devel
+BuildRequires:	pkgconfig(Qt3Support)
 
 %description
 Algorithm Flowchart Editor
