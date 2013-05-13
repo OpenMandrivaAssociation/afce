@@ -1,14 +1,13 @@
 %define		original_release	51
 Name:		afce
 Version:	0.9.0
-Release:	%mkrel 1
+Release:	2
 Summary:	Algorithm Flowchart Editor
 License:	GPL
 Group:		Education
 URL:		http://vicking.narod.ru/flowchart/
 Source:		%{name}-%{version}-%{original_release}.tar.gz
 Source2:	%{name}.desktop
-BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 BuildRequires:	pkgconfig(Qt3Support)
 
 %description
