@@ -1,56 +1,48 @@
-%define		original_release	51
-Name:		afce
-Version:	0.9.0
-Release:	2
+%define version 0.9.7
+%define name afce
+%define release 1
+# empty debug
+%define debug_package	%{nil}
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
 Summary:	Algorithm Flowchart Editor
-License:	GPL
+License:	GPLv3
 Group:		Education
-URL:		http://vicking.narod.ru/flowchart/
-Source:		%{name}-%{version}-%{original_release}.tar.gz
-Source2:	%{name}.desktop
-BuildRequires:	pkgconfig(Qt3Support)
+URL:		https://github.com/viktor-zin/afce
+# to build from git:
+#┌─[ symbianflo @ abfonly ] - [ Mandrivausers.ro ] 
+#└─[ MRB:aint-no-shit $]: cat BUILDING.md | grep sources
+Source0:	https://github.com/viktor-zin/afce/archive/v%{version}.tar.gz
+
+# switch to qt5 ,read BUILDING.md.Sflo
+BuildRequires:	qt5-devel
+BuildRequires:	pkgconfig(Qt5Svg)
+BuildRequires:	qt5-linguist-tools
+BuildRequires:	qt5-qtcore-i18n
+
 
 %description
-Algorithm Flowchart Editor
+Flowchart editor with code generation and vector graphics.
+AFCE allow to create, edit, print and export flowcharts easyly
+for a few minutes. Flowcharts can be exported to several grafical
+formats including SVG and PNG.
 
 %prep
-%setup -q -n %{name}-%{version}-%{original_release}
+%setup -q
 
 %build
-qmake
+%qmake_qt5
 %make
 
 %install
-rm -rf %{buildroot}
-install -Dm 0755 %{name} %{buildroot}%{_bindir}/%{name}
-install -dm 0755 %{buildroot}%{_datadir}/%{name}
-install -dm 0755 %{buildroot}%{_datadir}/pixmaps
-install -dm 0755 %{buildroot}%{_docdir}/%{name}
-install -dm 0755 %{buildroot}%{_datadir}/applications
-install -m 0644 %{name}.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
-install -m 0644 %{name}_en_US.ts %{buildroot}%{_datadir}/%{name}/%{name}_en_US.ts
-install -m 0644 %{name}_ru_RU.ts %{buildroot}%{_datadir}/%{name}/%{name}_ru_RU.ts
-install -m 0644 %{SOURCE2} %{buildroot}%{_datadir}/applications/%{name}.desktop
+%makeinstall INSTALL_ROOT=%{buildroot}
 
 %files
-%defattr (-,root,root)
-%doc README.RU.txt LICENSE.TXT doc/index.html
+%doc README.RU.txt README.md BUILDING.md LICENSE
 %{_bindir}/%{name}
-%{_datadir}/%{name}/*
+%{_datadir}/%{name}
 %{_datadir}/pixmaps/%{name}.png
+%{_iconsdir}/afc.ico
 %{_datadir}/applications/%{name}.desktop
-
-
-
-%clean
-rm -rf %{buildroot}
-
-%changelog
-* Thu Aug 11 2011 Sergey Zhemoitel <serg@mandriva.org> 0.9.0-1
-+ Revision: 693921
-- fix spec
-- fix spec
-- fix spec
-- fix spec
-- imported package afce
-
+%{_datadir}/mime/packages/%{name}.xml
