@@ -19,7 +19,7 @@ Source0:	https://github.com/viktor-zin/afce/archive/v%{version}.tar.gz
 BuildRequires:	qt5-devel
 BuildRequires:	pkgconfig(Qt5Svg)
 BuildRequires:	qt5-linguist-tools
-BuildRequires:	qt5-qtcore-i18n
+BuildRequires:	qt5-qttranslations
 
 
 %description
