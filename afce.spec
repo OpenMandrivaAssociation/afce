@@ -1,6 +1,6 @@
 %define version 0.9.7
 %define name afce
-%define release 1
+%define release 2
 # empty debug
 %define debug_package	%{nil}
 Name:		%{name}
