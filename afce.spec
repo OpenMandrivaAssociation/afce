@@ -4,8 +4,8 @@
 # empty debug
 %define debug_package	%{nil}
 Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Version:	0.9.8
+Release:	1
 Summary:	Algorithm Flowchart Editor
 License:	GPLv3
 Group:		Education
