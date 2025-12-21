@@ -16,6 +16,7 @@ URL:		https://github.com/viktor-zin/afce
 Source0:	https://github.com/viktor-zin/afce/archive/v%{version}.tar.gz
 
 # switch to qt5 ,read BUILDING.md.Sflo
+BuildRequires:	make
 BuildRequires:	qt5-devel
 BuildRequires:	pkgconfig(Qt5Svg)
 BuildRequires:	qt5-linguist-tools
